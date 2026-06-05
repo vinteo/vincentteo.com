@@ -1,0 +1,29 @@
+{
+  "name": "vincentteo.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i src/assets/css/input.css -o src/assets/css/main.css",
+    "build:eleventy": "eleventy",
+    "build": "npm run build:css && npm run build:eleventy",
+    "dev:css": "tailwindcss -i src/assets/css/input.css -o src/assets/css/main.css --watch",
+    "dev:eleventy": "eleventy --serve",
+    "dev": "concurrently \"npm run dev:css\" \"npm run dev:eleventy\"",
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@eslint/json": "^2.0.0",
+    "@html-eslint/eslint-plugin": "^0.61.0",
+    "@html-eslint/parser": "^0.61.0",
+    "@tailwindcss/cli": "^4.3.0",
+    "concurrently": "^10.0.3",
+    "eslint": "^9.19.0",
+    "tailwindcss": "^4.3.0"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "software": [
+    {
+      "title": "Home Assistant OpenSprinkler Custom Integration",
+      "description": "A custom Home Assistant integration for controlling and monitoring OpenSprinkler irrigation controllers.",
+      "tags": [
+        "Home Assistant",
+        "Python",
+        "OpenSprinkler"
+      ],
+      "image": "/assets/images/hass_opensprinkler.jpg",
+      "github": "https://github.com/vinteo/hass-opensprinkler",
+      "demo": ""
+    },
+    {
+      "title": "py-opensprinkler",
+      "description": "A Python library providing a client for the OpenSprinkler API, used to support the Home Assistant integration.",
+      "tags": [
+        "Python",
+        "OpenSprinkler",
+        "API Client"
+      ],
+      "image": "/assets/images/py_opensprinkler.jpg",
+      "github": "https://github.com/vinteo/py-opensprinkler",
+      "demo": ""
+    },
+    {
+      "title": "Dimensions NFC Server",
+      "description": "LEGO Dimensions Toypad Interface & Server that allows configuration of webhook calls when NFC tags are placed or removed on the toypad.",
+      "tags": [
+        "TypeScript",
+        "React",
+        "Node.js",
+        "SQLite"
+      ],
+      "image": "/assets/images/dimensions_nfc_server.jpg",
+      "github": "https://github.com/vinteo/dimensions-nfc-server",
+      "demo": "/blog/2026/06/06/vibe-coding-lego-dimensions/",
+      "demoLabel": "Read Story",
+      "ribbon": "100% Vibe Coded"
+    }
+  ],
+  "games": [
+    {
+      "title": "Starbase Ships by EGOTech",
+      "description": "EGOTech thrives to design various types of Starbase (game by Frozenbyte) ships that are practical but fun to use. Free blueprints are available for download with premium versions available for sale for in game credits.",
+      "tags": [
+        "Starbase",
+        "Ship Design",
+        "Ship Blueprints"
+      ],
+      "image": "/assets/images/starbase_ships.png",
+      "github": "https://github.com/EGO-Tech",
+      "demo": "https://starbase.egotech.space/",
+      "demoLabel": "Ship Catalog"
+    }
+  ]
+}

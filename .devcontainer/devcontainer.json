@@ -1,0 +1,31 @@
+{
+  "name": "Eleventy & Tailwind CSS Portfolio Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  
+  // Expose local development ports
+  "forwardPorts": [8080, 8082],
+
+  // Set workspace-specific settings for VS Code
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      // Installed extensions inside the dev container
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
+        "sanaajera.eleventy-vscode"
+      ]
+    }
+  },
+
+  // Run npm install automatically after container setup
+  "postCreateCommand": "npm install",
+
+  // Configure non-root node user
+  "remoteUser": "node"
+}
