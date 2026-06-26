@@ -5,6 +5,10 @@ date: 2026-06-06
 tags: ["Gaming", "React", "Node", "VibeCoding", "OpenSource"]
 ---
 
+<div class="my-8 overflow-hidden rounded-2xl border border-slate-800/80 shadow-2xl">
+  <img src="/assets/images/vibe-coding-lego-dimensions/00-hero-vibe-coding-lego-dimensions.jpg" alt="Vibe Coding a LEGO Dimensions NFC Server illustration featuring Blot mascot operating a machine with direction and vibe coding labels" class="w-full object-cover">
+</div>
+
 Recently, I decided it was time to clear out some shelf space and took my old PS3 console along with my entire collection of games down to CeX. The trade-in went smoothly for the most part—except for one item they couldn't accept: the LEGO Dimensions starter kit, specifically because of the USB-connected NFC Toy Pad.
 
 Instead of letting it gather dust in a drawer, I saw it as the perfect opportunity to run an experiment. Google had just released the new Antigravity 2.0 agent, so I decided to see how far I could push it. The goal was to build a companion tool, [dimensions-nfc-server](https://github.com/vinteo/dimensions-nfc-server), entirely through natural language and architectural guidance—a process commonly known as vibe coding.
