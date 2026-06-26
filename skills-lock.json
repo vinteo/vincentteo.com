@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "illo": {
+      "source": "tmchow/illo-skill",
+      "sourceType": "github",
+      "skillPath": "skills/illo/SKILL.md",
+      "computedHash": "3ac7a58f08935a181b7a3b261266c5355208aa77774b01d758462cffd6c27033"
+    }
+  }
+}

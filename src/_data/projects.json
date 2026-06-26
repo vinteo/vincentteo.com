@@ -8,7 +8,7 @@
         "Python",
         "OpenSprinkler"
       ],
-      "image": "/assets/images/hass_opensprinkler.jpg",
+      "image": "/assets/images/vinfelt-hass-opensprinkler.jpg",
       "github": "https://github.com/vinteo/hass-opensprinkler",
       "demo": ""
     },
@@ -20,7 +20,7 @@
         "OpenSprinkler",
         "API Client"
       ],
-      "image": "/assets/images/py_opensprinkler.jpg",
+      "image": "/assets/images/vinfelt-py-opensprinkler.jpg",
       "github": "https://github.com/vinteo/py-opensprinkler",
       "demo": ""
     },
