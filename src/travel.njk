@@ -1,0 +1,386 @@
+---
+layout: layouts/base.njk
+title: Vincent Teo - Travel Journal
+description: Interactive map and log of cities and countries around the world I have visited.
+permalink: /travel/
+---
+
+<!-- Leaflet.js Map Assets -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<div class="mx-auto max-w-7xl px-6 pt-24 md:pt-32 space-y-12">
+  
+  <!-- Hero Section -->
+  <div class="grid md:grid-cols-12 gap-8 items-center">
+    <!-- Left Side: Title & Description -->
+    <div class="md:col-span-7 space-y-4 text-center md:text-left">
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-sans">
+        Travel Journal
+      </h1>
+      <p class="text-base md:text-lg text-slate-400 leading-relaxed font-medium max-w-2xl">
+        A collection of cities and countries I've explored around the globe. Keeping track of the places, the moments, and the miles traveled.
+      </p>
+    </div>
+
+    <!-- Right Side: Vinfelt Mascot Decoration -->
+    <div class="md:col-span-5 flex justify-center md:justify-end">
+      <div class="relative max-w-sm w-full overflow-hidden rounded-3xl border-2 border-slate-800/80 bg-slate-900/40 p-2 shadow-2xl backdrop-blur-sm group">
+        <img src="/assets/images/vinfelt-travel.jpg" alt="Vinfelt mascot travel illustration showing vinfelt pointing at a felt globe" class="w-full h-auto rounded-2xl object-cover group-hover:scale-[1.01] transition-transform duration-500 ease-out">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19]/40 via-transparent to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nunjucks Dynamic Calculations for Stats -->
+  {% set uniqueCountries = "" %}
+  {% set uniqueCountriesCount = 0 %}
+  {% for city in cities %}
+    {% set countryKey = "[" + city.country + "]" %}
+    {% if countryKey not in uniqueCountries %}
+      {% set uniqueCountries = uniqueCountries + countryKey %}
+      {% set uniqueCountriesCount = uniqueCountriesCount + 1 %}
+    {% endif %}
+  {% endfor %}
+
+  <!-- Stats Dashboard -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+    <div class="glow-card rounded-2xl bg-slate-900/40 border border-slate-800/80 p-6 flex flex-col justify-center items-center text-center">
+      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Cities Visited</span>
+      <span id="cities-count" class="text-3xl md:text-4xl font-extrabold text-pink-400 mt-2">{{ cities.length }}</span>
+    </div>
+    <div class="glow-card rounded-2xl bg-slate-900/40 border border-slate-800/80 p-6 flex flex-col justify-center items-center text-center">
+      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Countries Explored</span>
+      <span id="countries-count" class="text-3xl md:text-4xl font-extrabold text-violet-400 mt-2">{{ uniqueCountriesCount }}</span>
+    </div>
+    <div class="col-span-2 glow-card rounded-2xl bg-slate-900/40 border border-slate-800/80 p-6 flex items-center justify-between">
+      <div class="text-left">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Latest Adventure</span>
+        <span id="latest-destination" class="text-lg font-bold text-lime-400 mt-1 block">Singapore</span>
+      </div>
+      <div class="h-10 w-10 rounded-full bg-lime-500/10 border border-lime-500/30 flex items-center justify-center text-lime-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Lived In Dashboard Card -->
+    <div class="col-span-2 md:col-span-4 glow-card rounded-2xl bg-slate-900/40 border border-slate-800/80 p-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="text-left w-full">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Places Lived</span>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+          <div class="flex items-start gap-3.5">
+            <img src="https://flagcdn.com/my.svg" class="w-9 h-6 object-cover rounded shadow-md shrink-0 mt-1 select-none" alt="Malaysia Flag">
+            <div>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">1981 – 1997</span>
+              <span class="text-base font-bold text-white block mt-0.5">Kuching, Malaysia</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3.5">
+            <img src="https://flagcdn.com/au.svg" class="w-9 h-6 object-cover rounded shadow-md shrink-0 mt-1 select-none" alt="Australia Flag">
+            <div>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">1998 – Present</span>
+              <span class="text-base font-bold text-white block mt-0.5">Melbourne, Australia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Container -->
+  <div class="space-y-4">
+    <h2 class="text-xl font-bold text-slate-200 font-sans flex items-center gap-2">
+      <svg class="h-5 w-5 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      Interactive Map
+    </h2>
+    <div id="map" class="h-[300px] md:h-[450px] rounded-3xl border-2 border-slate-800/80 shadow-2xl overflow-hidden bg-slate-950 relative z-10"></div>
+  </div>
+
+  <!-- City Log Table -->
+  <div class="space-y-4 pb-20">
+    <div class="flex justify-between items-center">
+      <h2 class="text-xl font-bold text-slate-200 font-sans flex items-center gap-2">
+        <svg class="h-5 w-5 text-violet-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        </svg>
+        Travel Log
+      </h2>
+      <span class="text-xs text-slate-500">Click headers to sort</span>
+    </div>
+
+    <!-- Table Container -->
+    <div class="bg-slate-900/20 rounded-2xl border border-slate-800/80 overflow-hidden backdrop-blur-sm">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse" id="cities-table">
+          <thead>
+            <tr class="bg-slate-950/40 text-slate-400 font-semibold text-xs tracking-wider uppercase border-b border-slate-800/80">
+              <th class="p-4 cursor-pointer hover:text-white hover:bg-slate-800/40 select-none transition-colors duration-150" data-sort="city">
+                <div class="flex items-center gap-1.5">
+                  City
+                  <span class="sort-icon text-[10px]">↕</span>
+                </div>
+              </th>
+              <th class="p-4 cursor-pointer hover:text-white hover:bg-slate-800/40 select-none transition-colors duration-150" data-sort="country">
+                <div class="flex items-center gap-1.5">
+                  Country
+                  <span class="sort-icon text-[10px]">↕</span>
+                </div>
+              </th>
+              <th class="p-4 cursor-pointer hover:text-white hover:bg-slate-800/40 select-none transition-colors duration-150" data-sort="date">
+                <div class="flex items-center gap-1.5">
+                  Last Visited
+                  <span class="sort-icon text-[10px]">↓</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/40 text-sm font-medium text-slate-300">
+            {% for city in cities | sort(true, false, 'dateVisited') %}
+            <tr class="hover:bg-slate-800/20 transition-colors duration-150" data-raw-city="{{ city.name }}" data-raw-country="{{ city.country }}" data-raw-date="{{ city.dateVisited }}">
+              <td class="p-4 text-white font-semibold">
+                <div class="flex items-center gap-2">
+                  <span>{{ city.name }}</span>
+                  {% if city.transitOnly %}
+                  <span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 select-none">Transit</span>
+                  {% endif %}
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2">
+                  <img src="https://flagcdn.com/{{ city.countryCode }}.svg" class="w-5 h-3.5 object-cover rounded-sm shadow-sm select-none" alt="{{ city.country }} Flag">
+                  <span>{{ city.country }}</span>
+                </div>
+              </td>
+              <td class="p-4 text-slate-400 formatted-date">{{ city.dateVisited }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CSS adjustments for Leaflet Popups and Markers -->
+<style>
+  .leaflet-popup-content-wrapper {
+    background-color: #1e1b4b !important; /* bg-indigo-950 */
+    color: #e2e8f0 !important; /* text-slate-200 */
+    border: 1px solid #3730a3 !important; /* border-indigo-800 */
+    border-radius: 1rem !important;
+    padding: 2px !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+  }
+  .leaflet-popup-tip {
+    background-color: #1e1b4b !important;
+    border: 1px solid #3730a3 !important;
+  }
+  .leaflet-popup-close-button {
+    color: #94a3b8 !important; /* text-slate-400 */
+    font-size: 16px !important;
+    padding: 8px 12px 0 0 !important;
+  }
+  .leaflet-popup-close-button:hover {
+    color: #f1f5f9 !important; /* text-slate-100 */
+    background: transparent !important;
+  }
+  .leaflet-bar {
+    border: 1px solid #334155 !important; /* border-slate-700 */
+    box-shadow: none !important;
+    border-radius: 0.75rem !important;
+    overflow: hidden;
+  }
+  .leaflet-bar a {
+    background-color: #1e293b !important; /* bg-slate-800 */
+    color: #94a3b8 !important;
+    border-bottom: 1px solid #334155 !important;
+    transition: all 0.2s;
+  }
+  .leaflet-bar a:hover {
+    background-color: #334155 !important; /* bg-slate-700 */
+    color: #f8fafc !important;
+  }
+</style>
+
+<!-- Leaflet Map and Sorting Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Data Injection
+    const citiesData = {{ cities | dump | safe }};
+    
+    // 2. Format Dates statically in table to friendly format
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    function getFriendlyDate(ymString) {
+      const [year, month] = ymString.split('-');
+      return `${monthNames[parseInt(month) - 1]} ${year}`;
+    }
+    
+    document.querySelectorAll('.formatted-date').forEach(el => {
+      const rawDate = el.textContent.trim();
+      el.textContent = getFriendlyDate(rawDate);
+    });
+
+    // Determine the latest adventure dynamically and update the dashboard
+    if (citiesData.length > 0) {
+      // Sort cities by dateVisited descending
+      const sortedByDate = [...citiesData].sort((a, b) => b.dateVisited.localeCompare(a.dateVisited));
+      const latest = sortedByDate[0];
+      const latestEl = document.getElementById('latest-destination');
+      if (latestEl) {
+        latestEl.textContent = `${latest.name}, ${latest.country}`;
+      }
+    }
+
+    // 3. Initialize Leaflet Map
+    const map = L.map('map', {
+      scrollWheelZoom: false,
+      zoomControl: true,
+      attributionControl: true
+    }).setView([20, 0], 2);
+
+    // Sleek Dark Theme Tile Layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+
+    // Glowing pink custom markers for visited places
+    const markerIcon = L.divIcon({
+      className: 'custom-marker',
+      html: '<div class="w-3.5 h-3.5 bg-pink-500 rounded-full border border-white shadow-[0_0_8px_rgba(236,72,153,0.8)]"></div>',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7]
+    });
+
+    // Glowing cyan custom markers for transit places
+    const transitIcon = L.divIcon({
+      className: 'custom-marker-transit',
+      html: '<div class="w-3.5 h-3.5 bg-cyan-500 rounded-full border border-white shadow-[0_0_8px_rgba(6,182,212,0.8)]"></div>',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7]
+    });
+
+    // Plot all markers
+    citiesData.forEach(city => {
+      const friendlyDate = getFriendlyDate(city.dateVisited);
+      const iconToUse = city.transitOnly ? transitIcon : markerIcon;
+      const marker = L.marker([city.lat, city.lng], { icon: iconToUse }).addTo(map);
+      marker.bindPopup(`
+        <div class="p-2 text-slate-200 font-sans">
+          <h4 class="font-bold text-base m-0 text-white">${city.name}${city.transitOnly ? ' (Transit)' : ''}</h4>
+          <p class="text-xs text-slate-400 m-0 mt-0.5">${city.country}</p>
+          <div class="mt-2 text-xs font-semibold ${city.transitOnly ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30' : 'bg-pink-500/20 text-pink-300 border border-pink-500/30'} px-2 py-0.5 rounded-md inline-block">
+            ${city.transitOnly ? 'Transit' : 'Visited'}: ${friendlyDate}
+          </div>
+        </div>
+      `);
+    });
+
+    // Glowing violet custom markers for places lived
+    const livedIcon = L.divIcon({
+      className: 'custom-marker-lived',
+      html: '<div class="w-3.5 h-3.5 bg-violet-500 rounded-full border border-white shadow-[0_0_8px_rgba(139,92,246,0.8)]"></div>',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7]
+    });
+
+    // Places Lived Data
+    const placesLived = [
+      { name: "Kuching", country: "Malaysia", years: "1981 – 1997", lat: 1.5533, lng: 110.3592 },
+      { name: "Melbourne", country: "Australia", years: "1998 – Present", lat: -37.8136, lng: 144.9631 }
+    ];
+
+    // Plot places lived
+    placesLived.forEach(place => {
+      const marker = L.marker([place.lat, place.lng], { icon: livedIcon }).addTo(map);
+      marker.bindPopup(`
+        <div class="p-2 text-slate-200 font-sans">
+          <h4 class="font-bold text-base m-0 text-white">${place.name}</h4>
+          <p class="text-xs text-slate-400 m-0 mt-0.5">${place.country}</p>
+          <div class="mt-2 text-xs font-semibold bg-violet-500/20 text-violet-300 border border-violet-500/30 px-2 py-0.5 rounded-md inline-block">
+            Lived: ${place.years}
+          </div>
+        </div>
+      `);
+    });
+
+    // 4. Client-side Table Sorting
+    const table = document.getElementById('cities-table');
+    const tbody = table.querySelector('tbody');
+    const headers = table.querySelectorAll('thead th');
+    
+    let currentSortCol = 'date';
+    let currentSortDir = 'desc'; // default sorted newest first
+
+    function sortTable(column, direction) {
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      
+      rows.sort((a, b) => {
+        let valA, valB;
+        
+        if (column === 'city') {
+          valA = a.getAttribute('data-raw-city').toLowerCase();
+          valB = b.getAttribute('data-raw-city').toLowerCase();
+        } else if (column === 'country') {
+          valA = a.getAttribute('data-raw-country').toLowerCase();
+          valB = b.getAttribute('data-raw-country').toLowerCase();
+        } else if (column === 'date') {
+          valA = a.getAttribute('data-raw-date');
+          valB = b.getAttribute('data-raw-date');
+        }
+
+        if (direction === 'asc') {
+          return valA.localeCompare(valB);
+        } else {
+          return valB.localeCompare(valA);
+        }
+      });
+
+      // Re-append rows in sorted order
+      rows.forEach(row => tbody.appendChild(row));
+    }
+
+    // Initialize default sort
+    sortTable(currentSortCol, currentSortDir);
+
+    // Add click listeners to headers
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const sortCol = header.getAttribute('data-sort');
+        const iconSpan = header.querySelector('.sort-icon');
+        
+        if (currentSortCol === sortCol) {
+          // Toggle direction
+          currentSortDir = currentSortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+          // Reset to asc (or desc for date)
+          currentSortCol = sortCol;
+          currentSortDir = sortCol === 'date' ? 'desc' : 'asc';
+        }
+
+        // Update all header icons
+        headers.forEach(h => {
+          const col = h.getAttribute('data-sort');
+          const isCurrent = col === currentSortCol;
+          const iSpan = h.querySelector('.sort-icon');
+          
+          if (col === 'date') {
+            iSpan.textContent = isCurrent ? (currentSortDir === 'asc' ? '↑' : '↓') : '↕';
+          } else {
+            iSpan.textContent = isCurrent ? (currentSortDir === 'asc' ? '↑' : '↓') : '↕';
+          }
+        });
+
+        sortTable(currentSortCol, currentSortDir);
+      });
+    });
+
+  });
+</script>
