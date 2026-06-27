@@ -1,11 +1,14 @@
 [
   { "name": "Kuala Lumpur", "country": "Malaysia", "countryCode": "my", "dateVisited": "2026-03", "lat": 3.1390, "lng": 101.6869 },
+  { "name": "Genting Highlands", "country": "Malaysia", "countryCode": "my", "dateVisited": "2026-03", "lat": 3.4243, "lng": 101.7924 },
   { "name": "Tokyo", "country": "Japan", "countryCode": "jp", "dateVisited": "2025-05", "lat": 35.6762, "lng": 139.6503 },
   { "name": "Osaka", "country": "Japan", "countryCode": "jp", "dateVisited": "2025-05", "lat": 34.6937, "lng": 135.5023 },
   { "name": "Kyoto", "country": "Japan", "countryCode": "jp", "dateVisited": "2025-05", "lat": 35.0116, "lng": 135.7681 },
   { "name": "Nara", "country": "Japan", "countryCode": "jp", "dateVisited": "2025-05", "lat": 34.6851, "lng": 135.8048 },
+  { "name": "Sekinchan", "country": "Malaysia", "countryCode": "my", "dateVisited": "2024-11", "lat": 3.5042, "lng": 101.1011 },
   { "name": "Kunming", "country": "China", "countryCode": "cn", "dateVisited": "2024-09", "lat": 25.0422, "lng": 102.7129 },
   { "name": "Guilin", "country": "China", "countryCode": "cn", "dateVisited": "2024-09", "lat": 25.2736, "lng": 110.2901 },
+  { "name": "Sydney", "country": "Australia", "countryCode": "au", "dateVisited": "2024-03", "lat": -33.8688, "lng": 151.2093 },
   { "name": "Danang", "country": "Vietnam", "countryCode": "vn", "dateVisited": "2023-01", "lat": 16.0544, "lng": 108.2022 },
   { "name": "Hoi An", "country": "Vietnam", "countryCode": "vn", "dateVisited": "2023-01", "lat": 15.8801, "lng": 108.3380 },
   { "name": "Alice Springs", "country": "Australia", "countryCode": "au", "dateVisited": "2022-09", "lat": -23.6980, "lng": 133.8807 },
@@ -28,7 +31,6 @@
   { "name": "Nampho", "country": "North Korea", "countryCode": "kp", "dateVisited": "2016-04", "lat": 38.7369, "lng": 125.4078 },
   { "name": "Perth", "country": "Australia", "countryCode": "au", "dateVisited": "2015-05", "lat": -31.9505, "lng": 115.8605 },
   { "name": "Langkawi", "country": "Malaysia", "countryCode": "my", "dateVisited": "2015-02", "lat": 6.3500, "lng": 99.8000 },
-  { "name": "Sydney", "country": "Australia", "countryCode": "au", "dateVisited": "2014-12", "lat": -33.8688, "lng": 151.2093 },
   { "name": "Adelaide", "country": "Australia", "countryCode": "au", "dateVisited": "2014-12", "lat": -34.9285, "lng": 138.6007 },
   { "name": "Cebu", "country": "Philippines", "countryCode": "ph", "dateVisited": "2013-12", "lat": 10.3157, "lng": 123.8854 },
   { "name": "Manila", "country": "Philippines", "countryCode": "ph", "dateVisited": "2013-12", "lat": 14.5995, "lng": 120.9842, "transitOnly": true },
@@ -38,7 +40,7 @@
   { "name": "Las Vegas", "country": "United States", "countryCode": "us", "dateVisited": "2013-04", "lat": 36.1716, "lng": -115.1398 },
   { "name": "Paris", "country": "France", "countryCode": "fr", "dateVisited": "2012-06", "lat": 48.8566, "lng": 2.3522 },
   { "name": "Avignon", "country": "France", "countryCode": "fr", "dateVisited": "2012-06", "lat": 43.9493, "lng": 4.8055 },
-  { "name": "Saint Emilion", "country": "France", "countryCode": "fr", "dateVisited": "2012-06", "lat": 44.8937, "lng": -0.1554 },
+  { "name": "Saint-Émilion", "country": "France", "countryCode": "fr", "dateVisited": "2012-06", "lat": 44.8937, "lng": -0.1554 },
   { "name": "Bordeaux", "country": "France", "countryCode": "fr", "dateVisited": "2012-06", "lat": 44.8378, "lng": -0.5792 },
   { "name": "London", "country": "United Kingdom", "countryCode": "gb", "dateVisited": "2012-05", "lat": 51.5074, "lng": -0.1278 },
   { "name": "Bath", "country": "United Kingdom", "countryCode": "gb", "dateVisited": "2012-05", "lat": 51.3758, "lng": -2.3599 },
@@ -59,5 +61,7 @@
   { "name": "Rotorua", "country": "New Zealand", "countryCode": "nz", "dateVisited": "2005-10", "lat": -38.1368, "lng": 176.2497 },
   { "name": "Surfer's Paradise", "country": "Australia", "countryCode": "au", "dateVisited": "2002-07", "lat": -28.0003, "lng": 153.4286 },
   { "name": "Mulu", "country": "Malaysia", "countryCode": "my", "dateVisited": "1997-06", "lat": 4.0478, "lng": 114.8122 },
-  { "name": "Malacca", "country": "Malaysia", "countryCode": "my", "dateVisited": "1993-06", "lat": 2.1896, "lng": 102.2501 }
+  { "name": "Miri", "country": "Malaysia", "countryCode": "my", "dateVisited": "1997-06", "lat": 4.3995, "lng": 113.9914, "transitOnly": true },
+  { "name": "Malacca", "country": "Malaysia", "countryCode": "my", "dateVisited": "1993-06", "lat": 2.1896, "lng": 102.2501 },
+  { "name": "Johor Bahru", "country": "Malaysia", "countryCode": "my", "dateVisited": "1993-06", "lat": 1.4854, "lng": 103.7618 }
 ]
