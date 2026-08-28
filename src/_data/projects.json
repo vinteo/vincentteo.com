@@ -40,6 +40,22 @@
       "ribbon": "100% Vibe Coded"
     }
   ],
+  "printing": [
+    {
+      "title": "3D Models Customizer & Exporter",
+      "description": "Parametric 3D CAD model customizer. Customize dimensions in real-time and export production-ready STL and STEP files.",
+      "tags": [
+        "3D Printing",
+        "CAD",
+        "Parametric",
+        "STL Export"
+      ],
+      "image": "/assets/images/vinfelt-3d-printing.jpg",
+      "github": "",
+      "demo": "https://3dmodels.vincentteo.com/",
+      "demoLabel": "Open Customizer"
+    }
+  ],
   "games": [
     {
       "title": "Starbase Ships by EGOTech",
