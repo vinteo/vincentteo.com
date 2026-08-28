@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const buttons = {
     all: document.getElementById("filter-btn-all"),
     software: document.getElementById("filter-btn-software"),
+    printing: document.getElementById("filter-btn-printing"),
     games: document.getElementById("filter-btn-games")
   };
 
@@ -41,6 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
           btn.className += "bg-pink-500 text-white shadow-lg shadow-pink-500/40";
         } else if (category === "games") {
           btn.className += "bg-lime-400 text-slate-950 shadow-lg shadow-lime-500/40";
+        } else if (category === "printing") {
+          btn.className += "bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/40";
         } else {
           btn.className += "bg-fuchsia-500 text-white shadow-lg shadow-fuchsia-500/40";
         }
