@@ -1658,13 +1658,6 @@
       }
     }
   }
-  .hover\:text-lime-400 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-lime-400);
-      }
-    }
-  }
   .hover\:text-pink-300 {
     &:hover {
       @media (hover: hover) {
