@@ -42,17 +42,31 @@
   ],
   "printing": [
     {
-      "title": "3D Models Customizer & Exporter",
-      "description": "Parametric 3D CAD model customizer. Customize dimensions in real-time and export production-ready STL and STEP files.",
+      "title": "OpenGrid Display Case Shell",
+      "description": "Parametric OpenGrid Display Case Shell with corner connector cutoffs. Customize dimensions in real-time and export production-ready STL and STEP files.",
       "tags": [
         "3D Printing",
-        "CAD",
+        "OpenGrid",
         "Parametric",
         "STL Export"
       ],
-      "image": "/assets/images/vinfelt-3d-printing.jpg",
+      "image": "/assets/images/vinfelt-opengrid-shell.jpg",
       "github": "",
-      "demo": "https://3dmodels.vincentteo.com/",
+      "demo": "https://3dmodels.vincentteo.com/opengrid-display-case-shell",
+      "demoLabel": "Open Customizer"
+    },
+    {
+      "title": "Kumiko Keychain",
+      "description": "Parametric Japanese Kumiko-inspired geometric keychain customizer. Customize dimensions in real-time and export production-ready STL and STEP files.",
+      "tags": [
+        "3D Printing",
+        "Kumiko",
+        "Parametric",
+        "STL Export"
+      ],
+      "image": "/assets/images/vinfelt-kumiko-keychain.jpg",
+      "github": "",
+      "demo": "https://3dmodels.vincentteo.com/kumiko-keychain",
       "demoLabel": "Open Customizer"
     }
   ],
