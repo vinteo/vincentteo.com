@@ -42,7 +42,7 @@
   ],
   "printing": [
     {
-      "title": "OpenGrid Display Case Shell",
+      "title": "OpenGrid Display Case",
       "description": "Parametric OpenGrid Display Case Shell with corner connector cutoffs. Customise dimensions in real-time and export production-ready STL and STEP files.",
       "tags": [
         "3D Printing",
@@ -52,8 +52,8 @@
       ],
       "image": "/assets/images/vinfelt-opengrid-shell.jpg",
       "github": "",
-      "demo": "https://3dmodels.vincentteo.com/opengrid-display-case-shell",
-      "demoLabel": "Open Customiser"
+      "demo": "/blog/2026/09/12/customising-opengrid-display-case/",
+      "demoLabel": "Read Guide"
     },
     {
       "title": "Kumiko Keychain",
@@ -67,7 +67,7 @@
       "image": "/assets/images/vinfelt-kumiko-keychain.jpg",
       "github": "",
       "demo": "/blog/2026/09/05/kumiko-keychain-customizer/",
-      "demoLabel": "Read Article"
+      "demoLabel": "Read Guide"
     }
   ],
   "games": [
