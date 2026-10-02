@@ -42,6 +42,21 @@
   ],
   "printing": [
     {
+      "title": "OpenGrid Desk Organiser Bin",
+      "description": "Parametric modular desk organizer bins and trays for OpenGrid. Customise dimensions, wall thickness, snap types, and dividers with real-time 3D preview and export.",
+      "tags": [
+        "3D Printing",
+        "OpenGrid",
+        "Parametric",
+        "STL & SCAD"
+      ],
+      "image": "/assets/images/vinfelt-opengrid-desk-organiser.jpg",
+      "github": "",
+      "demo": "/blog/2026/10/02/customising-opengrid-desk-organiser-bin/",
+      "demoLabel": "Read Guide",
+      "badge": "STL & SCAD"
+    },
+    {
       "title": "OpenGrid Display Case",
       "description": "Parametric OpenGrid Display Case Shell with corner connector cutoffs. Customise dimensions in real-time and export production-ready STL and STEP files.",
       "tags": [
@@ -53,7 +68,8 @@
       "image": "/assets/images/vinfelt-opengrid-shell.jpg",
       "github": "",
       "demo": "/blog/2026/09/12/customising-opengrid-display-case/",
-      "demoLabel": "Read Guide"
+      "demoLabel": "Read Guide",
+      "badge": "STEP & STL"
     },
     {
       "title": "Kumiko Keychain",
@@ -67,7 +83,8 @@
       "image": "/assets/images/vinfelt-kumiko-keychain.jpg",
       "github": "",
       "demo": "/blog/2026/09/05/kumiko-keychain-customizer/",
-      "demoLabel": "Read Guide"
+      "demoLabel": "Read Guide",
+      "badge": "Web Generator"
     }
   ],
   "games": [
