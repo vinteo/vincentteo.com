@@ -1,342 +1,371 @@
 ---
 layout: layouts/base.njk
-title: Vincent Teo - Projects Showcase
-description: Personal portfolio showcasing my projects.
+title: Vin's Space — Vincent Teo Portfolio
+description: Personal portfolio showcasing open-source automation systems, parametric 3D fabrication models, and experimental gaming architectures.
 ---
 
-<!-- Projects Showcase Controls -->
-<div class="mx-auto max-w-7xl px-6 pt-24 md:pt-32">
-  <div class="flex flex-col items-center justify-between border-b border-slate-800/80 pb-8 md:flex-row gap-6">
-    <div class="text-center md:text-left">
-      <h1 class="text-3xl font-extrabold tracking-tight text-white font-sans">
+<!-- Main Content Canvas -->
+<div class="max-w-[1240px] mx-auto px-6 md:px-8 py-8 md:py-16">
+
+  <!-- Hero / Headline Header Section -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+    <div>
+      <h1 class="text-4xl md:text-[56px] md:leading-[64px] font-bold tracking-tight text-[#F8FAFC] font-headline">
         Projects Showcase
       </h1>
+      <p class="text-base md:text-lg text-[#94A3B8] mt-2 max-w-2xl leading-relaxed">
+        A collection of open-source automation systems, parametric 3D fabrication models, and experimental gaming architectures.
+      </p>
     </div>
-    
-    <!-- Filter Tabs -->
-    <div class="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-slate-900/60 border-2 border-slate-800/80 rounded-3xl backdrop-blur-sm shadow-inner">
-      <button id="filter-btn-all" class="playful-btn px-5 py-2 text-xs font-bold rounded-2xl transition-all duration-300 cursor-pointer bg-fuchsia-500 text-white shadow-lg shadow-fuchsia-500/30">
+
+    <!-- Segmented Interactive Filter Tabs -->
+    <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-full bg-[#181c24]/80 backdrop-blur-md border border-white/[0.08] self-start md:self-auto">
+      <button id="filter-btn-all" class="px-4 py-1.5 rounded-full text-xs font-semibold text-[#F8FAFC] bg-[#8B5CF6] shadow-sm transition-all duration-150 cursor-pointer">
         All Showcase
       </button>
-      <button id="filter-btn-software" class="playful-btn px-5 py-2 text-xs font-bold rounded-2xl transition-all duration-300 cursor-pointer text-slate-400 hover:text-white hover:bg-slate-800/40">
+      <button id="filter-btn-software" class="px-4 py-1.5 rounded-full text-xs font-medium text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5 transition-all duration-150 cursor-pointer">
         Open Source
       </button>
-      <button id="filter-btn-printing" class="playful-btn px-5 py-2 text-xs font-bold rounded-2xl transition-all duration-300 cursor-pointer text-slate-400 hover:text-white hover:bg-slate-800/40">
+      <button id="filter-btn-printing" class="px-4 py-1.5 rounded-full text-xs font-medium text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5 transition-all duration-150 cursor-pointer">
         3D Printing
       </button>
-      <button id="filter-btn-games" class="playful-btn px-5 py-2 text-xs font-bold rounded-2xl transition-all duration-300 cursor-pointer text-slate-400 hover:text-white hover:bg-slate-800/40">
+      <button id="filter-btn-games" class="px-4 py-1.5 rounded-full text-xs font-medium text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5 transition-all duration-150 cursor-pointer">
         Games
       </button>
     </div>
   </div>
-</div>
 
-<!-- Projects Overview -->
-<div class="mx-auto max-w-7xl px-6 py-20 space-y-32">
-  
-  <!-- SOFTWARE SECTION -->
-  <section id="software" class="project-section relative scroll-mt-24" data-category="software">
-    <!-- Ambient section light -->
-    <div class="absolute -top-20 -left-20 w-80 h-80 bg-pink-500/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-    
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-      <div>
-        <h2 class="text-3xl font-extrabold text-pink-400 tracking-tight sm:text-4xl">Open Source Software</h2>
+  <!-- SECTION 1: Open Source Software -->
+  <section id="software" class="project-section mb-16 relative scroll-mt-24" data-category="software">
+    <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/[0.08]">
+      <div class="flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-sm bg-gradient-to-r from-[#EC4899] to-[#8B5CF6]"></span>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#EC4899] tracking-tight font-headline">
+          Open Source Software
+        </h2>
       </div>
-      <span class="text-xs font-semibold text-slate-500 border border-slate-900 rounded-lg bg-slate-950 px-3 py-1">
+      <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-[#1c2028] border border-white/[0.08] text-[#94A3B8]">
         {{ projects.software.length }} Projects
       </span>
     </div>
 
-    <!-- Software Grid -->
-    <div class="grid gap-8 md:grid-cols-2">
-      {% for item in projects.software %}
-      <article class="glow-card glow-card-software flex flex-col justify-between overflow-hidden rounded-3xl bg-slate-900/40 border-2 border-slate-800/80 backdrop-blur-sm group cursor-pointer">
+    <!-- Grid for Open Source Software (Top 2 Items) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      
+      <!-- Project 1: Home Assistant OpenSprinkler -->
+      {% set p1 = projects.software[0] %}
+      <article class="group rounded-xl bg-[#111827]/70 backdrop-blur-md border border-white/[0.08] overflow-hidden card-hover-border flex flex-col justify-between">
         <div>
-          <!-- Card Image -->
-          <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
-            <img src="{{ item.image }}" alt="{{ item.title }}" class="h-full w-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-transparent to-transparent opacity-90"></div>
-            {% if item.ribbon %}
-            <div class="absolute top-4 right-4 z-20">
-              <span class="inline-flex items-center rounded-xl bg-pink-500/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-white border border-pink-400/50 shadow-lg shadow-pink-500/30 backdrop-blur-sm">
-                {{ item.ribbon }}
-              </span>
-            </div>
-            {% endif %}
+          <div class="relative w-full aspect-video overflow-hidden bg-[#181c24]">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ p1.title }}" src="{{ p1.image }}"/>
           </div>
-          
-          <!-- Card Details -->
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white group-hover:text-violet-400 transition-colors duration-200">
-              {% set targetUrl = item.demo | default(item.github, true) %}
-              {% set isExternal = targetUrl.slice(0, 4) == 'http' %}
-              <a href="{{ targetUrl }}" {% if isExternal %}target="_blank" rel="noopener noreferrer"{% endif %} class="focus:outline-none">
-                <span class="absolute inset-0" aria-hidden="true"></span>
-                {{ item.title }}
+            <h3 class="text-xl font-semibold font-headline text-[#F8FAFC] group-hover:text-[#8B5CF6] transition-colors duration-200">
+              <a href="{{ p1.github }}" target="_blank" rel="noopener noreferrer">
+                {{ p1.title }}
               </a>
             </h3>
-            <p class="mt-3 text-sm text-slate-400 leading-relaxed font-medium">
-              {{ item.description }}
+            <p class="text-sm text-[#94A3B8] mt-2 leading-relaxed">
+              {{ p1.description }}
             </p>
-            
-            <!-- Tags -->
-            <div class="mt-4 flex flex-wrap gap-2">
-              {% for tag in item.tags %}
-              <span class="inline-flex items-center rounded-full bg-pink-500/15 px-3 py-1 text-xs font-bold text-pink-300 border border-pink-500/30">
-                {{ tag }}
-              </span>
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              {% for tag in p1.tags %}
+              <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/[0.08] text-[11px] font-semibold text-[#94A3B8]">{{ tag }}</span>
               {% endfor %}
             </div>
           </div>
         </div>
-
-        <!-- Links -->
-        <div class="p-6 pt-0 flex items-center gap-4">
-          {% if item.github %}
-          <a href="{{ item.github }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors duration-200 relative z-10">
-            <svg class="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
-            </svg>
-            GitHub
+        <div class="px-6 pb-6 pt-2 border-t border-white/[0.08] flex items-center justify-between">
+          <a class="inline-flex items-center gap-2 text-xs font-medium text-[#F8FAFC] hover:text-[#8B5CF6] transition-colors duration-150" href="{{ p1.github }}" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-[18px]">code</span>
+            <span>GitHub</span>
           </a>
-          {% endif %}
-          {% if item.demo %}
-          {% set isDemoExternal = item.demo.slice(0, 4) == 'http' %}
-          <a href="{{ item.demo }}" {% if isDemoExternal %}target="_blank" rel="noopener noreferrer"{% endif %} class="inline-flex items-center gap-1 text-xs font-bold text-pink-400 hover:text-pink-300 transition-colors duration-200 ml-auto relative z-10">
-            {{ item.demoLabel | default("Live Project", true) }}
-            <svg class="h-3 w-3 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-            </svg>
-          </a>
-          {% endif %}
+          <span class="text-xs font-mono text-[#94A3B8]">v2.4.1</span>
         </div>
       </article>
-      {% endfor %}
+
+      <!-- Project 2: py-opensprinkler -->
+      {% set p2 = projects.software[1] %}
+      <article class="group rounded-xl bg-[#111827]/70 backdrop-blur-md border border-white/[0.08] overflow-hidden card-hover-border flex flex-col justify-between">
+        <div>
+          <div class="relative w-full aspect-video overflow-hidden bg-[#181c24]">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ p2.title }}" src="{{ p2.image }}"/>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold font-headline text-[#F8FAFC] group-hover:text-[#8B5CF6] transition-colors duration-200">
+              <a href="{{ p2.github }}" target="_blank" rel="noopener noreferrer">
+                {{ p2.title }}
+              </a>
+            </h3>
+            <p class="text-sm text-[#94A3B8] mt-2 leading-relaxed">
+              {{ p2.description }}
+            </p>
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              {% for tag in p2.tags %}
+              <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/[0.08] text-[11px] font-semibold text-[#94A3B8]">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-white/[0.08] flex items-center justify-between">
+          <a class="inline-flex items-center gap-2 text-xs font-medium text-[#F8FAFC] hover:text-[#8B5CF6] transition-colors duration-150" href="{{ p2.github }}" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-[18px]">code</span>
+            <span>GitHub</span>
+          </a>
+          <span class="text-xs font-mono text-[#94A3B8]">PyPI</span>
+        </div>
+      </article>
+
     </div>
+
+    <!-- Project 3: Full Width Feature Card - Dimensions NFC Server -->
+    {% set p3 = projects.software[2] %}
+    <article class="group rounded-xl bg-[#111827]/70 backdrop-blur-md border border-white/[0.08] overflow-hidden card-hover-border">
+      <div class="grid grid-cols-1 lg:grid-cols-12">
+        <div class="lg:col-span-7 relative aspect-video lg:aspect-auto overflow-hidden bg-[#181c24] min-h-[260px]">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ p3.title }}" src="{{ p3.image }}"/>
+          <div class="absolute top-4 left-4">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold tracking-wider text-[#F8FAFC] bg-gradient-to-r from-[#aa0266] to-[#EC4899] vibe-tag-glow">
+              100% VIBE CODED
+            </span>
+          </div>
+        </div>
+        <div class="lg:col-span-5 p-6 md:p-8 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl md:text-2xl font-semibold font-headline text-[#F8FAFC] group-hover:text-[#8B5CF6] transition-colors duration-200">
+              <a href="{{ p3.demo | default(p3.github) }}">
+                {{ p3.title }}
+              </a>
+            </h3>
+            <p class="text-sm text-[#94A3B8] mt-3 leading-relaxed">
+              {{ p3.description }}
+            </p>
+            <!-- Tag Pills -->
+            <div class="flex flex-wrap gap-2 mt-5">
+              {% for tag in p3.tags %}
+              <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/[0.08] text-[11px] font-semibold text-[#94A3B8]">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="flex items-center gap-6 mt-8 pt-4 border-t border-white/[0.08]">
+            <a class="inline-flex items-center gap-2 text-xs font-medium text-[#F8FAFC] hover:text-[#8B5CF6] transition-colors duration-150" href="{{ p3.github }}" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined text-[18px]">code</span>
+              <span>GitHub</span>
+            </a>
+            {% if p3.demo %}
+            <a class="inline-flex items-center gap-1 text-xs font-medium text-[#EC4899] hover:text-[#ffb0cd] transition-colors duration-150" href="{{ p3.demo }}">
+              <span>{{ p3.demoLabel | default("Read Story") }}</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </article>
   </section>
 
-  <!-- 3D PRINTING SECTION -->
-  <section id="printing" class="project-section relative scroll-mt-24" data-category="printing">
-    <!-- Ambient section light -->
-    <div class="absolute -top-20 -left-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-    
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-      <div>
-        <h2 class="text-3xl font-extrabold text-cyan-400 tracking-tight sm:text-4xl">3D Printing</h2>
+  <!-- SECTION 2: 3D Printing -->
+  <section id="printing" class="project-section mb-16 relative scroll-mt-24" data-category="printing">
+    <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/[0.08]">
+      <div class="flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-sm bg-[#4cd7f6]"></span>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#4cd7f6] tracking-tight font-headline">
+          3D Printing
+        </h2>
       </div>
-      <span class="text-xs font-semibold text-slate-500 border border-slate-900 rounded-lg bg-slate-950 px-3 py-1">
+      <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-[#1c2028] border border-white/[0.08] text-[#94A3B8]">
         {{ projects.printing.length }} Projects
       </span>
     </div>
 
-    <!-- 3D Printing Grid -->
-    <div class="grid gap-8 md:grid-cols-2">
-      {% for item in projects.printing %}
-      <article class="glow-card glow-card-printing flex flex-col justify-between overflow-hidden rounded-3xl bg-slate-900/40 border-2 border-slate-800/80 backdrop-blur-sm group cursor-pointer">
+    <!-- Grid for 3D Printing -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Project 1: OpenGrid Display Case -->
+      {% set pr1 = projects.printing[0] %}
+      <article class="group rounded-xl bg-[#111827]/70 backdrop-blur-md border border-white/[0.08] overflow-hidden card-hover-border flex flex-col justify-between">
         <div>
-          <!-- Card Image -->
-          <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
-            <img src="{{ item.image }}" alt="{{ item.title }}" class="h-full w-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-transparent to-transparent opacity-90"></div>
-            {% if item.ribbon %}
-            <div class="absolute top-4 right-4 z-20">
-              <span class="inline-flex items-center rounded-xl bg-cyan-500/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-white border border-cyan-400/50 shadow-lg shadow-cyan-500/30 backdrop-blur-sm">
-                {{ item.ribbon }}
-              </span>
-            </div>
-            {% endif %}
+          <div class="relative w-full aspect-video overflow-hidden bg-[#181c24]">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ pr1.title }}" src="{{ pr1.image }}"/>
           </div>
-          
-          <!-- Card Details -->
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-200">
-              {% set targetUrl = item.demo | default(item.github, true) %}
-              {% set isExternal = targetUrl.slice(0, 4) == 'http' %}
-              <a href="{{ targetUrl }}" {% if isExternal %}target="_blank" rel="noopener noreferrer"{% endif %} class="focus:outline-none">
-                <span class="absolute inset-0" aria-hidden="true"></span>
-                {{ item.title }}
+            <h3 class="text-xl font-semibold font-headline text-[#F8FAFC] group-hover:text-[#8B5CF6] transition-colors duration-200">
+              <a href="{{ pr1.demo | default(pr1.github) }}">
+                {{ pr1.title }}
               </a>
             </h3>
-            <p class="mt-3 text-sm text-slate-400 leading-relaxed font-medium">
-              {{ item.description }}
+            <p class="text-sm text-[#94A3B8] mt-2 leading-relaxed">
+              {{ pr1.description }}
             </p>
-            
-            <!-- Tags -->
-            <div class="mt-4 flex flex-wrap gap-2">
-              {% for tag in item.tags %}
-              <span class="inline-flex items-center rounded-full bg-cyan-500/15 px-3 py-1 text-xs font-bold text-cyan-300 border border-cyan-500/30">
-                {{ tag }}
-              </span>
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              {% for tag in pr1.tags %}
+              <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/[0.08] text-[11px] font-semibold text-[#94A3B8]">{{ tag }}</span>
               {% endfor %}
             </div>
           </div>
         </div>
-
-        <!-- Links -->
-        <div class="p-6 pt-0 flex items-center gap-4">
-          {% if item.github %}
-          <a href="{{ item.github }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors duration-200 relative z-10">
-            <svg class="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
-            </svg>
-            GitHub
+        <div class="px-6 pb-6 pt-2 border-t border-white/[0.08] flex items-center justify-between">
+          <a class="inline-flex items-center gap-1 text-xs font-medium text-[#4cd7f6] hover:text-[#acedff] transition-colors duration-150" href="{{ pr1.demo }}">
+            <span>{{ pr1.demoLabel | default("Read Guide") }}</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
           </a>
-          {% endif %}
-          {% if item.demo %}
-          {% set isDemoExternal = item.demo.slice(0, 4) == 'http' %}
-          <a href="{{ item.demo }}" {% if isDemoExternal %}target="_blank" rel="noopener noreferrer"{% endif %} class="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-200 ml-auto relative z-10">
-            {{ item.demoLabel | default("Live Project", true) }}
-            <svg class="h-3 w-3 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-            </svg>
-          </a>
-          {% endif %}
+          <span class="text-xs font-mono text-[#94A3B8]">STEP &amp; STL</span>
         </div>
       </article>
-      {% endfor %}
+
+      <!-- Project 2: Kumiko Keychain -->
+      {% set pr2 = projects.printing[1] %}
+      <article class="group rounded-xl bg-[#111827]/70 backdrop-blur-md border border-white/[0.08] overflow-hidden card-hover-border flex flex-col justify-between">
+        <div>
+          <div class="relative w-full aspect-video overflow-hidden bg-[#181c24]">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ pr2.title }}" src="{{ pr2.image }}"/>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold font-headline text-[#F8FAFC] group-hover:text-[#8B5CF6] transition-colors duration-200">
+              <a href="{{ pr2.demo | default(pr2.github) }}">
+                {{ pr2.title }}
+              </a>
+            </h3>
+            <p class="text-sm text-[#94A3B8] mt-2 leading-relaxed">
+              {{ pr2.description }}
+            </p>
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              {% for tag in pr2.tags %}
+              <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/[0.08] text-[11px] font-semibold text-[#94A3B8]">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-white/[0.08] flex items-center justify-between">
+          <a class="inline-flex items-center gap-1 text-xs font-medium text-[#4cd7f6] hover:text-[#acedff] transition-colors duration-150" href="{{ pr2.demo }}">
+            <span>{{ pr2.demoLabel | default("Read Guide") }}</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+          </a>
+          <span class="text-xs font-mono text-[#94A3B8]">Web Generator</span>
+        </div>
+      </article>
+
     </div>
   </section>
 
-  <!-- GAMES SECTION -->
-  <section id="games" class="project-section relative scroll-mt-24" data-category="games">
-    <!-- Ambient section light -->
-    <div class="absolute -top-20 -right-20 w-80 h-80 bg-lime-500/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-    
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-      <div>
-        <h2 class="text-3xl font-extrabold text-lime-400 tracking-tight sm:text-4xl">Games</h2>
+  <!-- SECTION 3: Games -->
+  <section id="games" class="project-section mb-20 relative scroll-mt-24" data-category="games">
+    <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/[0.08]">
+      <div class="flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-sm bg-[#A3E635]"></span>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#A3E635] tracking-tight font-headline">
+          Games
+        </h2>
       </div>
-      <span class="text-xs font-semibold text-slate-500 border border-slate-900 rounded-lg bg-slate-950 px-3 py-1">
-        {{ projects.games.length }} Projects
+      <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-[#1c2028] border border-white/[0.08] text-[#94A3B8]">
+        {{ projects.games.length }} Project
       </span>
     </div>
 
-    <!-- Games Grid -->
-    <div class="grid gap-8 md:grid-cols-2">
-      {% for item in projects.games %}
-      <article class="glow-card glow-card-games flex flex-col justify-between overflow-hidden rounded-3xl bg-slate-900/40 border-2 border-slate-800/80 backdrop-blur-sm group cursor-pointer">
-        <div>
-          <!-- Card Image -->
-          <div class="relative overflow-hidden aspect-[16/10] bg-slate-950">
-            <img src="{{ item.image }}" alt="{{ item.title }}" class="h-full w-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-transparent to-transparent opacity-90"></div>
-            {% if item.ribbon %}
-            <div class="absolute top-4 right-4 z-20">
-              <span class="inline-flex items-center rounded-xl bg-pink-500/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-white border border-pink-400/50 shadow-lg shadow-pink-500/30 backdrop-blur-sm">
-                {{ item.ribbon }}
-              </span>
-            </div>
-            {% endif %}
-          </div>
-          
-          <!-- Card Details -->
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors duration-200">
-              {% set targetUrl = item.demo | default(item.github, true) %}
-              {% set isExternal = targetUrl.slice(0, 4) == 'http' %}
-              <a href="{{ targetUrl }}" {% if isExternal %}target="_blank" rel="noopener noreferrer"{% endif %} class="focus:outline-none">
-                <span class="absolute inset-0" aria-hidden="true"></span>
-                {{ item.title }}
+    <!-- Single Showcase Card - Starbase Ships -->
+    {% set g1 = projects.games[0] %}
+    <article class="group rounded-xl bg-[#111827]/70 backdrop-blur-md border border-white/[0.08] overflow-hidden card-hover-border">
+      <div class="grid grid-cols-1 lg:grid-cols-12">
+        <div class="lg:col-span-7 relative aspect-video lg:aspect-auto overflow-hidden bg-[#181c24] min-h-[260px]">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ g1.title }}" src="{{ g1.image }}"/>
+        </div>
+        <div class="lg:col-span-5 p-6 md:p-8 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl md:text-2xl font-semibold font-headline text-[#F8FAFC] group-hover:text-[#8B5CF6] transition-colors duration-200">
+              <a href="{{ g1.demo | default(g1.github) }}" target="_blank" rel="noopener noreferrer">
+                {{ g1.title }}
               </a>
             </h3>
-            <p class="mt-3 text-sm text-slate-400 leading-relaxed font-medium">
-              {{ item.description }}
+            <p class="text-sm text-[#94A3B8] mt-3 leading-relaxed">
+              {{ g1.description }}
             </p>
-            
-            <!-- Tags -->
-            <div class="mt-4 flex flex-wrap gap-2">
-              {% for tag in item.tags %}
-              <span class="inline-flex items-center rounded-full bg-lime-500/15 px-3 py-1 text-xs font-bold text-lime-300 border border-lime-500/30">
-                {{ tag }}
-              </span>
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-2 mt-5">
+              {% for tag in g1.tags %}
+              <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/[0.08] text-[11px] font-semibold text-[#94A3B8]">{{ tag }}</span>
               {% endfor %}
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-4 mt-8 pt-4 border-t border-white/[0.08]">
+            <div class="flex items-center gap-6">
+              {% if g1.github %}
+              <a class="inline-flex items-center gap-2 text-xs font-medium text-[#F8FAFC] hover:text-[#8B5CF6] transition-colors duration-150" href="{{ g1.github }}" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined text-[18px]">code</span>
+                <span>GitHub</span>
+              </a>
+              {% endif %}
+              {% if g1.demo %}
+              <a class="inline-flex items-center gap-1 text-xs font-medium text-[#4cd7f6] hover:text-[#acedff] transition-colors duration-150" href="{{ g1.demo }}" target="_blank" rel="noopener noreferrer">
+                <span>{{ g1.demoLabel | default("Ship Catalog") }}</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+              </a>
+              {% endif %}
+            </div>
+            <span class="text-xs font-mono text-[#A3E635] flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#A3E635] animate-pulse"></span>
+              Free Blueprints Available
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- SECTION 4: Personal Introduction / About Vincent Section -->
+  <section class="my-20" id="about">
+    <div class="relative rounded-2xl bg-[#111827]/90 backdrop-blur-xl border border-white/[0.08] p-8 md:p-12 overflow-hidden shadow-2xl">
+      <!-- Glow Aura in Card Background -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#a078ff]/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#EC4899]/15 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <!-- Avatar Portrait with Glowing Gradient Rim -->
+        <div class="relative flex-shrink-0">
+          <div class="w-40 h-40 md:w-52 md:h-52 rounded-2xl p-[3px] bg-gradient-to-tr from-[#8B5CF6] via-[#EC4899] to-[#4cd7f6] shadow-xl shadow-[#a078ff]/20">
+            <div class="w-full h-full rounded-2xl overflow-hidden bg-[#0B0F17]">
+              <img alt="Vincent Teo avatar" class="w-full h-full object-cover" src="/assets/images/profile.jpg"/>
             </div>
           </div>
         </div>
 
-        <!-- Links -->
-        <div class="p-6 pt-0 flex items-center gap-4">
-          {% if item.github %}
-          <a href="{{ item.github }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors duration-200 relative z-10">
-            <svg class="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
-            </svg>
-            GitHub
-          </a>
-          {% endif %}
-          {% if item.demo %}
-          {% set isDemoExternal = item.demo.slice(0, 4) == 'http' %}
-          <a href="{{ item.demo }}" {% if isDemoExternal %}target="_blank" rel="noopener noreferrer"{% endif %} class="inline-flex items-center gap-1 text-xs font-bold text-lime-400 hover:text-lime-300 transition-colors duration-200 ml-auto relative z-10">
-            {{ item.demoLabel | default("Play Game", true) }}
-            <svg class="h-3 w-3 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-            </svg>
-          </a>
-          {% endif %}
+        <!-- Intro Content -->
+        <div class="flex-1 text-center md:text-left">
+          <h2 class="text-3xl md:text-4xl font-bold font-headline text-[#F8FAFC] tracking-tight">
+            Hi, I'm Vincent. <br/>
+            <span class="bg-gradient-to-r from-[#EC4899] via-[#8B5CF6] to-[#4cd7f6] bg-clip-text text-transparent">
+              Welcome to my digital space.
+            </span>
+          </h2>
+          <p class="text-base md:text-lg text-[#94A3B8] mt-3 max-w-xl">
+            Here, you'll find a showcase of my projects.
+          </p>
+
+          <!-- Social / Platform Link Buttons -->
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mt-8">
+            <a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold text-[#F8FAFC] bg-gradient-to-r from-[#aa0266] to-[#EC4899] hover:brightness-110 transition-all duration-150 shadow-md shadow-[#EC4899]/20 active:scale-95" href="https://github.com/vinteo" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined text-[18px]">terminal</span>
+              <span>GitHub</span>
+            </a>
+            <a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold text-[#F8FAFC] bg-gradient-to-r from-[#D946EF] to-[#8B5CF6] hover:brightness-110 transition-all duration-150 shadow-md active:scale-95" href="https://instagram.com/vinteo" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+              <span>Instagram</span>
+            </a>
+            <a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold text-[#F8FAFC] bg-[#DC2626] hover:bg-[#EF4444] transition-all duration-150 shadow-md shadow-red-500/20 active:scale-95" href="https://youtube.com/@vinteo81" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined text-[18px]">play_circle</span>
+              <span>YouTube</span>
+            </a>
+            <a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold text-[#F8FAFC] bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] hover:brightness-110 transition-all duration-150 shadow-md active:scale-95" href="mailto:contact@vincentteo.com">
+              <span class="material-symbols-outlined text-[18px]">mail</span>
+              <span>Email Me</span>
+            </a>
+          </div>
         </div>
-      </article>
-      {% endfor %}
+      </div>
     </div>
   </section>
 
 </div>
-
-<!-- Hero / About Section (Moved to Bottom) -->
-<section id="about" class="relative overflow-hidden py-24 md:py-32 border-t border-slate-900/60 bg-slate-950/30">
-  <!-- Glowing decorative spheres -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse"></div>
-  <div class="absolute top-1/4 left-1/3 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-
-  <div class="mx-auto max-w-5xl px-6 flex flex-col md:flex-row items-center gap-12">
-    <!-- Left Column: Profile Photo -->
-    <div class="w-48 h-48 md:w-60 md:h-60 flex-shrink-0 relative group">
-      <!-- Glow background border -->
-      <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-pink-500 via-fuchsia-500 to-cyan-400 opacity-75 blur-md group-hover:opacity-100 transition duration-500"></div>
-      <!-- Image frame -->
-      <div class="relative w-full h-full rounded-3xl overflow-hidden border-4 border-slate-900 bg-slate-900 transition-transform duration-300 group-hover:scale-[1.04] group-hover:rotate-2">
-        <img src="/assets/images/profile.jpg" alt="Vincent Teo Profile Photo" class="w-full h-full object-cover object-center">
-      </div>
-    </div>
-    
-    <!-- Right Column: Text Content -->
-    <div class="flex-1 text-center md:text-left">
-      <h2 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-sans leading-none">
-        Hi, I'm Vincent.
-        <span class="block mt-2 bg-gradient-to-r from-pink-500 via-amber-300 to-cyan-400 bg-clip-text text-transparent">
-          Welcome to my digital space.
-        </span>
-      </h2>
-      <p class="mt-6 text-lg leading-relaxed text-slate-400 max-w-2xl font-medium">
-        Here, you'll find a showcase of my projects.
-      </p>
-      <div class="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
-        <a href="https://github.com/vinteo" target="_blank" rel="noopener noreferrer" class="playful-btn inline-flex items-center gap-2 rounded-2xl bg-pink-500 hover:bg-pink-400 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-pink-500/20 transition-all duration-200">
-          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
-          </svg>
-          GitHub
-        </a>
-        <a href="https://instagram.com/vinteo" target="_blank" rel="noopener noreferrer" class="playful-btn inline-flex items-center gap-2 rounded-2xl bg-fuchsia-500 hover:bg-fuchsia-400 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-fuchsia-500/20 transition-all duration-200">
-          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.01 3.71.054 9.39.429 9.02 9.35 9.02 9.35 0 2.43-.01 2.784-.054 3.71-.429 9.39-9.35 9.02-9.35 9.02-2.43 0-2.784-.01-3.71-.054-9.39-.429-9.02-9.35-9.02-9.35 0-2.43.01-2.784.054-3.71.429-9.39 9.35-9.02 9.35-9.02zm.685 1.998c-2.4 0-2.73.008-3.678.052-6.843.312-6.52 6.843-6.52 6.843 0 2.4-.008 2.73-.052 3.678.312 6.843 6.843 6.52 6.843 6.52 2.4 0 2.73-.008 3.678-.052 6.843-.312 6.52-6.843 6.52-6.843 0-2.4.008-2.73.052-3.678-.312-6.843-6.843-6.52-6.843-6.52zm0 3.327a4.675 4.675 0 110 9.35 4.675 4.675 0 010-9.35zm0 1.998a2.677 2.677 0 100 5.354 2.677 2.677 0 000-5.354zm5.83-2.021a1.082 1.082 0 11-2.163 0 1.082 1.082 0 012.163 0z" clip-rule="evenodd" />
-          </svg>
-          Instagram
-        </a>
-        <a href="https://youtube.com/@vinteo81" target="_blank" rel="noopener noreferrer" class="playful-btn inline-flex items-center gap-2 rounded-2xl bg-rose-500 hover:bg-rose-400 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-rose-500/20 transition-all duration-200">
-          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" clip-rule="evenodd" />
-          </svg>
-          YouTube
-        </a>
-        <a href="mailto:contact@vincentteo.com" class="playful-btn inline-flex items-center gap-2 rounded-2xl bg-violet-600 hover:bg-violet-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all duration-200">
-          <svg class="h-5 w-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          Email Me
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-

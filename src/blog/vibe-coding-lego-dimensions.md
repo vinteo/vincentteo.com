@@ -2,6 +2,8 @@
 title: From PS3 Trade-in to Vibe Coding a LEGO Dimensions NFC Server
 description: How a rejected toy pad at CeX turned into the perfect sandbox for testing Google Antigravity 2.0 and vibe coding a complete Node & React utility.
 date: 2026-06-06
+image: /assets/images/vibe-coding-lego-dimensions/00-hero-vibe-coding-lego-dimensions.jpg
+imageAlt: Vibe Coding a LEGO Dimensions NFC Server illustration featuring Blot mascot operating a machine with direction and vibe coding labels
 tags: ["Gaming", "React", "Node", "VibeCoding", "OpenSource"]
 ---
 

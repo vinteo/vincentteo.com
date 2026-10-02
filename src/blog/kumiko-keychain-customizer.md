@@ -2,6 +2,8 @@
 title: Crafting Traditional Kumiko Keychains with a Parametric In-Browser Customiser
 description: Explore the Japanese Kumiko-inspired keychain customiser, blending ancient geometric woodwork with modern parametric 3D CAD directly in your web browser.
 date: 2026-09-05
+image: /assets/images/kumiko-keychain/00-hero-kumiko-keychain.jpg
+imageAlt: Felt mascot holding a 3D printed wooden-style Kumiko keychain
 tags: ["3DPrinting", "Kumiko", "CAD", "Parametric", "OpenSource", "WebApps"]
 ---
 
