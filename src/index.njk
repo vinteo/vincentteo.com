@@ -181,74 +181,39 @@ description: Personal portfolio showcasing open-source automation systems, param
     </div>
 
     <!-- Grid for 3D Printing -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      
-      <!-- Project 1: OpenGrid Display Case -->
-      {% set pr1 = projects.printing[0] %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for pr in projects.printing %}
       <article class="group rounded-xl bg-[#111827]/70 backdrop-blur-md border border-white/[0.08] overflow-hidden card-hover-border flex flex-col justify-between">
         <div>
           <div class="relative w-full aspect-video overflow-hidden bg-[#181c24]">
-            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ pr1.title }}" src="{{ pr1.image }}"/>
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ pr.title }}" src="{{ pr.image }}"/>
           </div>
           <div class="p-6">
             <h3 class="text-xl font-semibold font-headline text-[#F8FAFC] group-hover:text-[#8B5CF6] transition-colors duration-200">
-              <a href="{{ pr1.demo | default(pr1.github) }}">
-                {{ pr1.title }}
+              <a href="{{ pr.demo | default(pr.github) }}">
+                {{ pr.title }}
               </a>
             </h3>
             <p class="text-sm text-[#94A3B8] mt-2 leading-relaxed">
-              {{ pr1.description }}
+              {{ pr.description }}
             </p>
             <!-- Tech Tags -->
             <div class="flex flex-wrap gap-2 mt-4">
-              {% for tag in pr1.tags %}
+              {% for tag in pr.tags %}
               <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/[0.08] text-[11px] font-semibold text-[#94A3B8]">{{ tag }}</span>
               {% endfor %}
             </div>
           </div>
         </div>
         <div class="px-6 pb-6 pt-2 border-t border-white/[0.08] flex items-center justify-between">
-          <a class="inline-flex items-center gap-1 text-xs font-medium text-[#4cd7f6] hover:text-[#acedff] transition-colors duration-150" href="{{ pr1.demo }}">
-            <span>{{ pr1.demoLabel | default("Read Guide") }}</span>
+          <a class="inline-flex items-center gap-1 text-xs font-medium text-[#4cd7f6] hover:text-[#acedff] transition-colors duration-150" href="{{ pr.demo }}">
+            <span>{{ pr.demoLabel | default("Read Guide") }}</span>
             <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
           </a>
-          <span class="text-xs font-mono text-[#94A3B8]">STEP &amp; STL</span>
+          <span class="text-xs font-mono text-[#94A3B8]">{{ pr.badge | default("STL & SCAD") }}</span>
         </div>
       </article>
-
-      <!-- Project 2: Kumiko Keychain -->
-      {% set pr2 = projects.printing[1] %}
-      <article class="group rounded-xl bg-[#111827]/70 backdrop-blur-md border border-white/[0.08] overflow-hidden card-hover-border flex flex-col justify-between">
-        <div>
-          <div class="relative w-full aspect-video overflow-hidden bg-[#181c24]">
-            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ pr2.title }}" src="{{ pr2.image }}"/>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold font-headline text-[#F8FAFC] group-hover:text-[#8B5CF6] transition-colors duration-200">
-              <a href="{{ pr2.demo | default(pr2.github) }}">
-                {{ pr2.title }}
-              </a>
-            </h3>
-            <p class="text-sm text-[#94A3B8] mt-2 leading-relaxed">
-              {{ pr2.description }}
-            </p>
-            <!-- Tech Tags -->
-            <div class="flex flex-wrap gap-2 mt-4">
-              {% for tag in pr2.tags %}
-              <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/[0.08] text-[11px] font-semibold text-[#94A3B8]">{{ tag }}</span>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-        <div class="px-6 pb-6 pt-2 border-t border-white/[0.08] flex items-center justify-between">
-          <a class="inline-flex items-center gap-1 text-xs font-medium text-[#4cd7f6] hover:text-[#acedff] transition-colors duration-150" href="{{ pr2.demo }}">
-            <span>{{ pr2.demoLabel | default("Read Guide") }}</span>
-            <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-          </a>
-          <span class="text-xs font-mono text-[#94A3B8]">Web Generator</span>
-        </div>
-      </article>
-
+      {% endfor %}
     </div>
   </section>
 
