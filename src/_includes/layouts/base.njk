@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title | default("Vincent Teo - Portfolio") }}</title>
-  <meta name="description" content="{{ description | default("Personal landing page and project showcase of Vincent Teo.") }}">
+  <title>{{ title | default("Vin's Space — Vincent Teo Portfolio") }}</title>
+  <meta name="description" content="{{ description | default("Personal portfolio and project showcase of Vincent Teo.") }}">
   
-  <!-- Google Fonts -->
+  <!-- Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+
+  <!-- Google Fonts: Outfit, Geist, Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css">
@@ -30,66 +33,86 @@
     gtag('config', 'G-33JTHN62YS');
   </script>
 </head>
-<body class="bg-[#120e25] text-slate-200 antialiased selection:bg-violet-500 selection:text-white flex flex-col min-h-screen">
+<body class="bg-[#0B0F17] text-[#F8FAFC] min-h-screen relative font-sans antialiased overflow-x-hidden flex flex-col selection:bg-[#8B5CF6]/30 selection:text-[#F8FAFC]">
+
+  <!-- Subtle Ambient Atmospheric Glow Layers -->
+  <div class="fixed inset-0 pointer-events-none ambient-glow-purple z-0"></div>
+  <div class="fixed inset-0 pointer-events-none ambient-glow-pink z-0"></div>
+  <div class="fixed inset-0 pointer-events-none ambient-glow-cyan z-0"></div>
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 w-full border-b-2 border-slate-800/60 bg-[#120e25]/85 backdrop-blur-md transition-all duration-300">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <!-- Logo -->
-      <a href="/" class="group flex items-center space-x-2.5">
-        <div class="playful-btn flex h-10 w-10 overflow-hidden items-center justify-center rounded-2xl border border-slate-700 shadow-lg shadow-pink-500/10 group-hover:rotate-6 transition-transform duration-300">
-          <img src="/assets/images/profile.jpg" alt="Vincent Teo Logo" class="h-full w-full object-cover">
+  <header class="sticky top-0 z-50 w-full bg-[#0B0F17]/80 backdrop-blur-xl border-b border-white/[0.08] shadow-lg shadow-[#0a0e16]/50 transition-all duration-300">
+    <div class="max-w-[1240px] mx-auto px-6 md:px-8 flex items-center justify-between h-16">
+      <!-- Brand Logo -->
+      <a href="/" class="text-base font-bold text-[#F8FAFC] flex items-center gap-3 group">
+        <div class="relative w-8 h-8 rounded-full bg-gradient-to-tr from-[#a078ff] to-[#EC4899] p-[1.5px] transition-transform duration-200 group-hover:scale-105">
+          <img src="/assets/images/profile.jpg" alt="Vincent Teo avatar" class="w-full h-full object-cover rounded-full">
+          <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-[#A3E635] rounded-full border-2 border-[#0B0F17]"></span>
         </div>
-        <span class="text-4xl font-extrabold text-white group-hover:text-violet-400 transition-colors duration-300">Vin's Space</span>
+        <span class="tracking-tight text-[#F8FAFC] font-bold text-lg font-headline">Vin's Space</span>
       </a>
       
-      <!-- Nav Links -->
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
-        <a href="https://3dmodels.vincentteo.com/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 hover:scale-105 transition-all duration-200">3D Models</a>
-        <a href="/blog/" class="nav-reset-link text-slate-400 hover:text-fuchsia-400 hover:scale-105 transition-all duration-200">Blog</a>
-        <a href="/travel/" class="nav-reset-link text-slate-400 hover:text-pink-400 hover:scale-105 transition-all duration-200">Travel</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="https://3dmodels.vincentteo.com/" target="_blank" rel="noopener noreferrer" class="text-xs md:text-sm font-medium text-[#94A3B8] transition-colors duration-200 hover:text-[#F8FAFC]">3D Models</a>
+        <a href="/blog/" class="nav-reset-link text-xs md:text-sm font-medium text-[#94A3B8] transition-colors duration-200 hover:text-[#F8FAFC]">Blog</a>
+        <a href="/travel/" class="nav-reset-link text-xs md:text-sm font-medium text-[#94A3B8] transition-colors duration-200 hover:text-[#F8FAFC]">Travel</a>
       </nav>
       
-      <!-- CTA / Contact -->
-      <div class="flex items-center space-x-4">
-        <a href="/#about" class="playful-btn inline-flex items-center justify-center rounded-2xl bg-fuchsia-500 hover:bg-fuchsia-400 px-5 py-2 text-sm font-bold text-white shadow-lg shadow-fuchsia-500/25 transition-all duration-300 border-0">
+      <!-- Action & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="/#about" class="px-4 md:px-5 py-1.5 rounded-full text-xs md:text-sm font-semibold text-[#F8FAFC] bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] hover:opacity-95 hover:shadow-lg hover:shadow-[#EC4899]/25 transition-all duration-200 active:scale-95">
           Get in Touch
         </a>
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="flex md:hidden items-center justify-center p-2 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-900 focus:outline-none transition-all duration-300">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button id="mobile-menu-btn" class="flex md:hidden items-center justify-center p-2 rounded-xl border border-white/[0.08] text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5 focus:outline-none transition-all duration-200" aria-label="Toggle navigation menu">
+          <span class="material-symbols-outlined text-[20px]" id="menu-icon">menu</span>
         </button>
       </div>
     </div>
+    
     <!-- Mobile Menu Panel -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/60 bg-[#120e25]/95 backdrop-blur-md px-6 py-4 space-y-3">
-      <a href="https://3dmodels.vincentteo.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link block text-sm font-semibold text-slate-400 hover:text-cyan-400 transition-colors duration-200 py-1.5">3D Models</a>
-      <a href="/blog/" class="mobile-nav-link block text-sm font-semibold text-slate-400 hover:text-fuchsia-400 transition-colors duration-200 py-1.5">Blog</a>
-      <a href="/travel/" class="mobile-nav-link block text-sm font-semibold text-slate-400 hover:text-pink-400 transition-colors duration-200 py-1.5">Travel</a>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-[#0B0F17]/95 backdrop-blur-xl px-6 py-4 space-y-3">
+      <a href="https://3dmodels.vincentteo.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link block text-sm font-medium text-[#94A3B8] hover:text-[#F8FAFC] transition-colors duration-200 py-1.5">3D Models</a>
+      <a href="/blog/" class="mobile-nav-link block text-sm font-medium text-[#94A3B8] hover:text-[#F8FAFC] transition-colors duration-200 py-1.5">Blog</a>
+      <a href="/travel/" class="mobile-nav-link block text-sm font-medium text-[#94A3B8] hover:text-[#F8FAFC] transition-colors duration-200 py-1.5">Travel</a>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow">
+  <main class="relative z-10 flex-grow">
     {{ content | safe }}
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-900 bg-[#070a12] py-12 text-slate-500 text-sm">
-    <div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
-        <p>&copy; 2026 Vincent Teo. All rights reserved.</p>
-        <p class="text-xs text-slate-600 mt-1">Built with 11ty and Tailwind CSS. Site and content created with AI assistance.</p>
+  <footer class="w-full bg-[#0B0F17] border-t border-white/[0.08] relative z-10">
+    <div class="max-w-[1240px] mx-auto px-6 md:px-8 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+      <!-- Copyright Information -->
+      <div class="text-center md:text-left">
+        <p class="text-sm text-[#94A3B8]">
+          © 2026 Vincent Teo. All rights reserved. Built with 11ty and Tailwind CSS.
+        </p>
+        <p class="text-xs text-[#94A3B8]/60 mt-1">
+          Site and content created with AI assistance.
+        </p>
       </div>
-      <div class="flex space-x-6">
-        <a href="/blog/" class="hover:text-slate-300 transition-colors duration-200">Blog</a>
-        <a href="https://github.com/vinteo" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors duration-200">GitHub</a>
-        <a href="https://instagram.com/vinteo" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors duration-200">Instagram</a>
-        <a href="https://youtube.com/@vinteo81" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors duration-200">YouTube</a>
-        <a href="mailto:contact@vincentteo.com" class="hover:text-slate-300 transition-colors duration-200">Email</a>
-      </div>
+      <!-- Footer Navigation Links -->
+      <nav class="flex flex-wrap items-center justify-center gap-6">
+        <a class="text-xs font-medium text-[#94A3B8] transition-colors duration-200 hover:text-[#F8FAFC] hover:underline" href="/blog/">
+          Blog
+        </a>
+        <a class="text-xs font-medium text-[#94A3B8] transition-colors duration-200 hover:text-[#F8FAFC] hover:underline" href="https://github.com/vinteo" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a class="text-xs font-medium text-[#94A3B8] transition-colors duration-200 hover:text-[#F8FAFC] hover:underline" href="https://instagram.com/vinteo" target="_blank" rel="noopener noreferrer">
+          Instagram
+        </a>
+        <a class="text-xs font-medium text-[#94A3B8] transition-colors duration-200 hover:text-[#F8FAFC] hover:underline" href="https://youtube.com/@vinteo81" target="_blank" rel="noopener noreferrer">
+          YouTube
+        </a>
+        <a class="text-xs font-medium text-[#94A3B8] transition-colors duration-200 hover:text-[#F8FAFC] hover:underline" href="mailto:contact@vincentteo.com">
+          Email
+        </a>
+      </nav>
     </div>
   </footer>
 </body>

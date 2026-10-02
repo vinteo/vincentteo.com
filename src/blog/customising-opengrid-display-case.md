@@ -2,6 +2,8 @@
 title: Customising the OpenGrid Display Case
 description: A detailed step-by-step guide on how to use the web customisers for the OpenGrid Display Case project to create your own parametric shell, cover, and connectors.
 date: 2026-09-12
+image: /assets/images/vinfelt-opengrid-shell.jpg
+imageAlt: OpenGrid Display Case illustration featuring Vinfelt mascot
 tags: ["3DPrinting", "CAD", "Parametric", "OpenGrid", "OpenSource"]
 ---
 

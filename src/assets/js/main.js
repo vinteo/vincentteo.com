@@ -8,10 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mobileMenu && menuIcon) {
       if (mobileMenu.classList.contains("hidden")) {
         mobileMenu.classList.remove("hidden");
-        menuIcon.setAttribute("d", "M6 18L18 6M6 6l12 12");
+        if (menuIcon.tagName.toLowerCase() === "span") {
+          menuIcon.textContent = "close";
+        } else {
+          menuIcon.setAttribute("d", "M6 18L18 6M6 6l12 12");
+        }
       } else {
         mobileMenu.classList.add("hidden");
-        menuIcon.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+        if (menuIcon.tagName.toLowerCase() === "span") {
+          menuIcon.textContent = "menu";
+        } else {
+          menuIcon.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+        }
       }
     }
   }
@@ -31,30 +39,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function filterCategory(category) {
     // Update button styles
-    Object.keys(buttons).forEach(key => {
+    Object.keys(buttons).forEach((key) => {
       const btn = buttons[key];
       if (!btn) return;
       
       if (key === category) {
         // Active button styles
-        btn.className = "playful-btn px-5 py-2 text-xs font-bold rounded-2xl transition-all duration-300 cursor-pointer ";
+        btn.className = "px-4 py-1.5 rounded-full text-xs font-semibold shadow-sm transition-all duration-150 cursor-pointer ";
         if (category === "software") {
-          btn.className += "bg-pink-500 text-white shadow-lg shadow-pink-500/40";
+          btn.className += "bg-[#EC4899] text-[#F8FAFC]";
         } else if (category === "games") {
-          btn.className += "bg-lime-400 text-slate-950 shadow-lg shadow-lime-500/40";
+          btn.className += "bg-[#A3E635] text-[#0B0F17]";
         } else if (category === "printing") {
-          btn.className += "bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/40";
+          btn.className += "bg-[#4cd7f6] text-[#0B0F17]";
         } else {
-          btn.className += "bg-fuchsia-500 text-white shadow-lg shadow-fuchsia-500/40";
+          btn.className += "bg-[#8B5CF6] text-[#F8FAFC]";
         }
       } else {
         // Inactive button styles
-        btn.className = "playful-btn px-5 py-2 text-xs font-bold rounded-2xl transition-all duration-300 cursor-pointer text-slate-400 hover:text-white hover:bg-slate-800/40";
+        btn.className = "px-4 py-1.5 rounded-full text-xs font-medium text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5 transition-all duration-150 cursor-pointer";
       }
     });
 
     // Show/hide sections with transitions
-    sections.forEach(section => {
+    sections.forEach((section) => {
       const sectionCategory = section.getAttribute("data-category");
       
       if (category === "all" || sectionCategory === category) {
@@ -77,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Bind filter button click events
-  Object.keys(buttons).forEach(key => {
+  Object.keys(buttons).forEach((key) => {
     const btn = buttons[key];
     if (btn) {
       btn.addEventListener("click", () => {
@@ -87,20 +95,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Bind header/mobile nav link resets
-  // When a nav link is clicked, we reset filter to 'all' so the section is visible
   const navResetLinks = document.querySelectorAll(".nav-reset-link");
-  navResetLinks.forEach(link => {
+  navResetLinks.forEach((link) => {
     link.addEventListener("click", () => {
       filterCategory("all");
     });
   });
 
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
-  mobileNavLinks.forEach(link => {
+  mobileNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
       toggleMobileMenu();
       filterCategory("all");
     });
   });
 });
-
