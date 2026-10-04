@@ -25,7 +25,7 @@ The Shell is the main body of the display case, featuring the signature corner c
 
 ### How to Customise the Shell
 
-1. **Access the Customiser:** Head over to the [OpenGrid Display Case Shell Customiser](https://3dmodels.vincentteo.com/opengrid-display-case-shell).
+1. **Access the Customiser:** Head over to the [OpenGrid Display Case Shell Customiser](https://3dmodel.tools/opengrid-display-case-shell).
 2. **Adjust Dimensions:** In the right-hand panel, you can adjust the physical dimensions of the shell. You can specify the width, depth, and height according to the size of the object you intend to display.
 3. **Configure the OpenGrid Mounts:** The customiser allows you to select how many OpenGrid slots (X and Y) you want on the base. This is crucial for ensuring compatibility with other OpenGrid accessories.
 4. **Export Your Model:** Once you are happy with the preview in the 3D viewport, click the **Download STL** or **Download STEP** button. STL is great for immediate slicing, while STEP is perfect if you want to make further modifications in your own CAD software.
@@ -40,7 +40,7 @@ The Cover generator creates the top piece that slots into the shell, keeping you
 
 ### How to Customise the Cover
 
-1. **Access the Customiser:** Open the [OpenGrid Display Case Cover Customiser](https://3dmodels.vincentteo.com/opengrid-display-case-cover).
+1. **Access the Customiser:** Open the [OpenGrid Display Case Cover Customiser](https://3dmodel.tools/opengrid-display-case-cover).
 2. **Match the Shell Dimensions:** It is vital that the dimensions (Width, Depth, Height) entered here exactly match the dimensions you used for your Shell. The customiser will automatically calculate the correct tolerances and lip sizes to ensure a perfect fit.
 3. **Adjust Thickness (Optional):** If you are using non-standard acrylic or want a thicker/thinner printed cover, you can adjust the wall thickness parameters.
 4. **Export:** Click **Download STL** or **Download STEP** to save the cover model to your computer.
@@ -55,7 +55,7 @@ The Connectors are used to join multiple display cases together, allowing you to
 
 ### How to Customise the Connectors
 
-1. **Access the Customiser:** Navigate to the [OpenGrid Display Case Connector Customiser](https://3dmodels.vincentteo.com/opengrid-display-case-connector).
+1. **Access the Customiser:** Navigate to the [OpenGrid Display Case Connector Customiser](https://3dmodel.tools/opengrid-display-case-connector).
 2. **Select Connector Type:** Depending on how you want to stack or link your cases, you can generate different connector shapes (e.g., 2-way, 3-way, or 4-way intersections).
 3. **Set Tolerances:** Depending on your 3D printer's calibration, you may want to slightly adjust the tolerance value to ensure the connectors fit snugly into the shell cutoffs without being too tight.
 4. **Toggle OpenGrid Mounts (Optional):** You can completely turn off the OpenGrid connector feature in the settings. This allows the connectors to be used independently—simply to join your display cases together without anchoring them to an OpenGrid base.

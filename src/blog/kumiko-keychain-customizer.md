@@ -13,9 +13,9 @@ tags: ["3DPrinting", "Kumiko", "CAD", "Parametric", "OpenSource", "WebApps"]
 
 Kumiko (組子) is a centuries-old Japanese woodworking technique where wooden pieces are slotted together without nails to create delicate, mesmerising geometric patterns. Traditionally found in shoji screens, room dividers, and lanterns, Kumiko patterns carry deep cultural symbolism—from the hemp leaf (*Asa-no-ha*) representing vitality and resilience, to the bellflower (*Kikyo*) representing elegance.
 
-To bring this art form into the modern maker space, I developed the [Kumiko Keychain Customiser](https://3dmodels.vincentteo.com/kumiko-keychain)—an interactive, browser-based CAD utility that allows anyone to design, customise, and export production-ready 3D printable Kumiko keychains in real time.
+To bring this art form into the modern maker space, I developed the [Kumiko Keychain Customiser](https://3dmodel.tools/kumiko-keychain)—an interactive, browser-based CAD utility that allows anyone to design, customise, and export production-ready 3D printable Kumiko keychains in real time.
 
-You can try the live tool directly at **[3dmodels.vincentteo.com/kumiko-keychain](https://3dmodels.vincentteo.com/kumiko-keychain)**, or grab pre generated STL files from the community repositories:
+You can try the live tool directly at **[3dmodel.tools/kumiko-keychain](https://3dmodel.tools/kumiko-keychain)**, or grab pre generated STL files from the community repositories:
 
 - **[Printables Model Page](https://www.printables.com/model/1826573-simple-kumiko-inspired-keychain-customisable)**
 - **[QIDI Maker Model Page](https://www.qidimaker.com/models/detail/2093595266801807362)**
@@ -38,7 +38,7 @@ The customiser runs entirely on client-side WebAssembly, meaning all CAD calcula
 
 ### Step 1: Interface Overview & 3D Viewport Navigation
 
-When you load the [Kumiko Keychain Customiser](https://3dmodels.vincentteo.com/kumiko-keychain), you are presented with a real-time 3D preview on the right and parameter controls on the left:
+When you load the [Kumiko Keychain Customiser](https://3dmodel.tools/kumiko-keychain), you are presented with a real-time 3D preview on the right and parameter controls on the left:
 
 <div class="my-8 overflow-hidden rounded-2xl border border-slate-800/80 shadow-2xl">
   <img src="/assets/images/kumiko-keychain/01-customizer-overview.jpg" alt="Kumiko Keychain Customiser main interface overview showing 3D viewport and parameter sidebar" class="w-full object-cover">
@@ -131,7 +131,7 @@ Whether printed in clean white PLA to evoke Japanese shoji paper or in wood-infu
 
 ## Links & Downloads
 
-- **Live Web Customiser**: [https://3dmodels.vincentteo.com/kumiko-keychain](https://3dmodels.vincentteo.com/kumiko-keychain)
+- **Live Web Customiser**: [https://3dmodel.tools/kumiko-keychain](https://3dmodel.tools/kumiko-keychain)
 - **Printables**: [Simple Kumiko Inspired Keychain on Printables](https://www.printables.com/model/1826573-simple-kumiko-inspired-keychain-customisable)
 - **QIDI Maker**: [Simple Kumiko Inspired Keychain on QIDI Maker](https://www.qidimaker.com/models/detail/2093595266801807362)
 
