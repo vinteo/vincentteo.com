@@ -13,7 +13,7 @@ tags: ["3DPrinting", "CAD", "Parametric", "OpenGrid", "OpenSource"]
 
 The **[OpenGrid Desk Organiser](https://www.printables.com/model/1862914-opengrid-desk-organiser)** is a versatile, modular storage system designed to keep your workspace tidy, flexible, and completely tailored to your everyday tools. Built upon the open standard OpenGrid mounting architecture, every bin, tray, and divider snaps securely into the base grid and can be rearranged whenever your workflow changes.
 
-To make building your dream desk setup effortless, the **[OpenGrid Desk Organiser Bin Web Customiser](https://3dmodels.vincentteo.com/opengrid-desk-organiser-bin)** lets you configure and generate custom-sized bins, compartments, and trays right in your browser—without needing CAD software.
+To make building your dream desk setup effortless, the **[OpenGrid Desk Organiser Bin Web Customiser](https://3dmodel.tools/opengrid-desk-organiser)** lets you configure and generate custom-sized bins, compartments, and trays right in your browser—without needing CAD software.
 
 In this guide, we'll walk through every parameter in the customiser, how to design bins for different desk essentials, and showcase real-world printed examples from the build.
 
@@ -21,7 +21,7 @@ In this guide, we'll walk through every parameter in the customiser, how to desi
 
 ## 1. Navigating the Web Customiser
 
-When you open the **[OpenGrid Desk Organiser Bin Customiser](https://3dmodels.vincentteo.com/opengrid-desk-organiser-bin)**, you are greeted with a responsive 3D viewport on the right and an intuitive parameter sidebar on the left.
+When you open the **[OpenGrid Desk Organiser Bin Customiser](https://3dmodel.tools/opengrid-desk-organiser)**, you are greeted with a responsive 3D viewport on the right and an intuitive parameter sidebar on the left.
 
 <div class="my-8 overflow-hidden rounded-2xl border border-slate-800/80 shadow-2xl">
   <img src="/assets/images/opengrid-desk-organiser/06-customiser-overview.png" alt="OpenGrid Desk Organiser Bin Web Customiser Interface" class="w-full object-cover">
@@ -163,7 +163,7 @@ To get clean, snap-fit results:
 
 Ready to start customizing and printing your own desk organizer? Check out the links below:
 
-- **Web Customiser:** [OpenGrid Desk Organiser Bin Customiser](https://3dmodels.vincentteo.com/opengrid-desk-organiser-bin)
+- **Web Customiser:** [OpenGrid Desk Organiser Bin Customiser](https://3dmodel.tools/opengrid-desk-organiser)
 - **Printables:** [OpenGrid Desk Organiser on Printables](https://www.printables.com/model/1862914-opengrid-desk-organiser)
 - **QIDI Maker:** [OpenGrid Desk Organiser on QIDI Maker](https://www.qidimaker.com/en/models/detail/2105976479143243777)
 
